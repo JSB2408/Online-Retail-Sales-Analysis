@@ -1,165 +1,216 @@
 # 🛒 Online Retail Sales Analysis Dashboard
 
-## 📌 Project Overview
+## 📌 Overview
 
-This project performs an end-to-end analysis of an online retail dataset using Python, MySQL, and Power BI. The goal is to transform raw transactional data into actionable business insights through data cleaning, exploratory data analysis (EDA), SQL-based business analysis, and interactive dashboarding.
+This project implements an end-to-end Data Analytics and ETL pipeline using Python, MySQL, and Power BI. The objective is to transform raw retail transaction data into actionable business insights through data cleaning, exploratory data analysis (EDA), SQL-based business analysis, and interactive dashboard development.
 
-The project focuses on understanding sales performance, customer behavior, product trends, and geographical revenue distribution.
+The project follows a structured workflow where data is extracted and transformed using Python, loaded into MySQL for querying and analysis, and finally connected to Power BI for visualization and reporting.
 
 ---
 
 ## 📂 Dataset
 
-The dataset contains online retail transaction records with the following information:
+The Online Retail dataset contains transactional sales records from an e-commerce business.
 
-- Invoice Number
-- Product Description
-- Quantity Purchased
-- Invoice Date
-- Unit Price
-- Customer ID
-- Country
-- Revenue
+### Dataset Features
 
-### Key Metrics Analyzed
+* Invoice Number
+* Product Description
+* Quantity
+* Invoice Date
+* Unit Price
+* Customer ID
+* Country
 
-- Total Revenue
-- Total Orders
-- Total Customers
-- Average Order Value (AOV)
-- Top Products
-- Top Customers
-- Revenue by Country
-- Revenue Trends
+### Derived Features
+
+* Revenue
+* Year
+* Month
+* Day of Week
+* Hour
 
 ---
 
 ## 🛠️ Tools & Technologies
 
-| Tool | Purpose |
-|--------|----------|
-| Python | Data Processing & Analysis |
-| Pandas | Data Manipulation |
-| NumPy | Numerical Operations |
-| Matplotlib | Visualization |
-| Seaborn | Exploratory Data Analysis |
-| MySQL | SQL Queries & Business Analysis |
-| Power BI | Interactive Dashboard |
-| Jupyter Notebook | Analysis Environment |
-| Git & GitHub | Version Control |
+| Tool             | Purpose                       |
+| ---------------- | ----------------------------- |
+| Python           | ETL, Data Cleaning & Analysis |
+| Pandas           | Data Manipulation             |
+| NumPy            | Numerical Operations          |
+| Matplotlib       | Data Visualization            |
+| Seaborn          | Exploratory Data Analysis     |
+| MySQL            | Data Storage & SQL Analysis   |
+| Power BI         | Dashboard & Reporting         |
+| Jupyter Notebook | Development Environment       |
+| GitHub           | Project Hosting               |
 
 ---
 
-## 🔄 Project Workflow
+# 🔄 ETL Pipeline
 
-### 1. Data Loading
+This project follows a complete ETL (Extract, Transform, Load) workflow.
 
-- Imported dataset using Pandas
-- Inspected dataset structure
-- Reviewed data types and summary statistics
+## Extract
 
-### 2. Data Cleaning
+* Imported the raw retail dataset into Python using Pandas.
+* Loaded and inspected transactional sales records.
+* Reviewed dataset structure, missing values, and data types.
 
-Performed:
+## Transform
 
-- Missing value handling
-- Duplicate removal
-- Date formatting
-- Revenue calculation
-- Feature engineering
+Performed data cleaning and preprocessing in Python.
 
-Created additional fields:
+### Data Cleaning
 
-- Year
-- Month
-- Day of Week
-- Hour
-- Revenue
+* Removed duplicate records
+* Handled missing values
+* Converted InvoiceDate into datetime format
+* Standardized column formats
+* Removed invalid transactions where required
 
-### 3. Exploratory Data Analysis (EDA)
+### Feature Engineering
+
+Created additional analytical columns:
+
+* Revenue = Quantity × Unit Price
+* Year
+* Month
+* Day of Week
+* Hour
+
+### Exploratory Data Analysis (EDA)
 
 Analyzed:
 
-- Revenue trends over time
-- Top-performing products
-- Customer purchasing behavior
-- Geographic sales distribution
-- Peak shopping hours
-- Weekly sales patterns
+* Sales trends
+* Customer behavior
+* Product performance
+* Revenue distribution
+* Geographic sales patterns
+* Time-based purchasing behavior
 
-### 4. SQL Business Analysis
+## Load
 
-Business questions solved using MySQL:
+* Exported the cleaned dataset from Python.
+* Loaded transformed data into MySQL.
+* Structured the database for analytical queries.
 
-- Top 10 Customers by Revenue
-- Top 10 Products by Revenue
-- Country-wise Revenue Analysis
-- Customer Spending Analysis
-- Average Order Value Analysis
-- Product Purchase Analysis
-- Revenue Trend Analysis
+## SQL Business Analysis
 
-### 5. Dashboard Development
+Performed business analysis using MySQL queries:
 
-Developed an interactive Power BI dashboard containing:
+* Top Customers by Revenue
+* Top Products by Revenue
+* Country-wise Revenue Analysis
+* Average Order Value Analysis
+* Revenue Trend Analysis
+* Customer Purchase Analysis
+* Product Purchase Analysis
 
-#### KPI Cards
+## Visualization & Reporting
 
-- Total Revenue
-- Total Orders
-- Total Customers
-- Average Order Value
-- Total Quantity Sold
-- Countries Served
-
-#### Visualizations
-
-- Monthly Revenue Trend
-- Top Products by Revenue
-- Top Customers by Revenue
-- Revenue by Country
-- Revenue by Hour
-- Revenue by Day of Week
-
-#### Interactive Filters
-
-- Product
-- Year
-- Month
-- Country
+* Connected Power BI directly to MySQL.
+* Imported SQL-ready data into Power BI.
+* Built interactive dashboards and KPI reports.
+* Added slicers and filters for dynamic analysis.
 
 ---
 
-## 📊 Dashboard Preview
+## 🔗 End-to-End Data Pipeline
 
-### Key Dashboard Components
+```text
+Raw Retail Dataset
+        │
+        ▼
+Python (Pandas)
+Data Cleaning + EDA + Feature Engineering
+        │
+        ▼
+MySQL Database
+Data Storage + SQL Business Analysis
+        │
+        ▼
+Power BI Dashboard
+Interactive Visualization & Reporting
+        │
+        ▼
+Business Insights
+```
 
-✔ Revenue KPI
+## 🏗️ Pipeline Architecture
 
-✔ Orders KPI
+```text
+Extract
+  ↓
+Retail Dataset
 
-✔ Customer KPI
+Transform
+  ↓
+Python
+- Data Cleaning
+- Data Transformation
+- Feature Engineering
+- Exploratory Data Analysis
 
-✔ Average Order Value KPI
+Load
+  ↓
+MySQL Database
 
-✔ Product Performance Analysis
+Analyze
+  ↓
+SQL Queries
 
-✔ Country Revenue Analysis
+Visualize
+  ↓
+Power BI Dashboard
 
-✔ Sales Trend Analysis
-
-✔ Time-based Revenue Analysis
+Deliver
+  ↓
+Business Insights & Recommendations
+```
 
 ---
 
-## 📈 Key Insights
+## 📊 Dashboard Features
 
-- Generated over £20M in total revenue.
-- Served customers across 40+ countries.
-- Identified top revenue-generating products.
-- Discovered high-value customers contributing significantly to sales.
-- Found peak sales hours and highest-performing weekdays.
-- Analyzed country-wise business performance.
+### KPI Cards
+
+* Total Revenue
+* Total Orders
+* Total Customers
+* Average Order Value (AOV)
+* Total Quantity Sold
+* Countries Served
+
+### Visualizations
+
+* Monthly Revenue Trend
+* Top Products by Revenue
+* Top Customers by Revenue
+* Country-wise Revenue Analysis
+* Revenue by Hour
+* Revenue by Day of Week
+
+### Interactive Filters
+
+* Product Filter
+* Country Filter
+* Year Filter
+* Month Filter
+
+---
+
+## 📈 Key Business Insights
+
+* Generated over £20M in total revenue.
+* Served customers across 40+ countries.
+* Identified top-performing products.
+* Discovered high-value customers.
+* Analyzed peak shopping hours.
+* Identified top revenue-generating countries.
+* Evaluated customer purchasing behavior.
 
 ---
 
@@ -185,40 +236,27 @@ Online-Retail-Analysis/
 └── requirements.txt
 ```
 
+---
+
 ## ▶️ How to Run
 
 ### Python Analysis
 
-1. Clone the repository
-
-```bash
-git clone https://github.com/yourusername/Online-Retail-Analysis.git
-```
-
-2. Install dependencies
-
 ```bash
 pip install pandas numpy matplotlib seaborn
-```
-
-3. Launch Jupyter Notebook
-
-```bash
 jupyter notebook
 ```
 
-4. Run all notebook cells
+Run all cells in the notebook.
 
-### SQL Analysis
+### MySQL Analysis
 
-1. Import dataset into MySQL
-2. Execute queries from:
+1. Import dataset into MySQL.
+2. Execute SQL queries from:
 
 ```text
 retail_store.sql
 ```
-
-3. Analyze generated business insights
 
 ### Power BI Dashboard
 
@@ -228,19 +266,18 @@ retail_store.sql
 ONLINE_STORE.pbix
 ```
 
-2. Refresh data if required
-
-3. Interact with filters and visuals
+2. Refresh the data connection.
+3. Interact with dashboard filters and visuals.
 
 ---
 
 ## 🚀 Future Improvements
 
-- RFM Customer Segmentation
-- Customer Lifetime Value (CLV) Analysis
-- Sales Forecasting
-- Product Recommendation System
-- Advanced Market Basket Analysis
+* RFM Customer Segmentation
+* Customer Lifetime Value (CLV) Analysis
+* Sales Forecasting
+* Recommendation System
+* Advanced Market Basket Analysis
 
 ---
 
@@ -248,9 +285,4 @@ ONLINE_STORE.pbix
 
 **Jasmeet Singh Bhatia**
 
-Data Analytics | Python | SQL | Power BI
-
----
-
-### ⭐ If you found this project useful, consider giving it a star!
-
+End-to-End Data Analytics Project using Python, MySQL, and Power BI.
